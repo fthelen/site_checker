@@ -13,4 +13,4 @@ I intend to use sevral packages:
     2) requests
     3) beautifulsoup
 
-_*This is my first project in python! Any advice is appreciated!*
+*This is my first project in python! Any advice is appreciated!*
