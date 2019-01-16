@@ -6,7 +6,7 @@ The goal of this project it so screen through a large volume of websites to dete
     5) Inactive 
     6) Unreachable
 
-This will require use of both the HTTP status codes (https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), but also landing page information and redirection data.
+This will require use of HTTP status codes (https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), landing page information, and redirection data.
 
 I intend to use sevral packages:
     1) pandas
