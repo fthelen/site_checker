@@ -8,7 +8,7 @@ The goal of this project it to screen through a large volume of websites to dete
 
 This will require use of HTTP status codes (https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), landing page information, and redirection data.
 
-I intend to use sevral packages:
+I intend to use several packages:
     1) pandas
     2) requests
     3) beautifulsoup
