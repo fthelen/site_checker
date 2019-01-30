@@ -4,10 +4,9 @@
 import pandas
 import requests
 
-url_list = pandas.read_csv(r'C:\Users\Thele\Documents\GitHub\site_checker\url.csv')
-print(url_list)
+url_df = pandas.read_csv("./url.csv")
 
-test_list = url_list("url").tolist()
+test_list = url_df['url'].tolist()
 
 results_list = []
 for x in test_list:  
@@ -15,4 +14,5 @@ for x in test_list:
     n = r.status_code == requests.codes.ok
     results_list.append(str(n))
 
-print(results_list)
+export_df = pandas.DataFrame(data=results_list)
+export_df.to_csv("./siteresults.csv",sep=',',index=False)
