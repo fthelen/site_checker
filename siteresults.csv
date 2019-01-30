@@ -1,6 +1,6 @@
-0
-True
-True
-True
-True
-True
+url,results
+http://www.google.com,True
+http://www.facebook.com,True
+http://www.netflix.com,True
+http://www.yahoo.com,True
+http://www.instagram.com,True
