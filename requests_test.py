@@ -4,11 +4,13 @@
 import pandas
 import requests
 
-url_list = pandas.read_csv(r'C:\Users\Thele\Documents\GitHub\site_checker\sites_list.csv')
+url_list = pandas.read_csv(r'C:\Users\Thele\Documents\GitHub\site_checker\url.csv')
+print(url_list)
 
 results_list = []
-for row in url_list:  
+for row in url_list('url'):  
     r = requests.get(row)
     n = r.status_code == requests.codes.ok
     results_list.append(str(n))
+
 print(results_list)
