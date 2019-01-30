@@ -7,9 +7,11 @@ import requests
 url_list = pandas.read_csv(r'C:\Users\Thele\Documents\GitHub\site_checker\url.csv')
 print(url_list)
 
+test_list = url_list("url").tolist()
+
 results_list = []
-for row in url_list('url'):  
-    r = requests.get(row)
+for x in test_list:  
+    r = requests.get(x)
     n = r.status_code == requests.codes.ok
     results_list.append(str(n))
 
