@@ -2,11 +2,11 @@
 # This will later need to be itterated through to produce a large list of results from a sites dataset
 
 import requests
+url_list = ['http://google.com', 'http://amazon.com', 'http://fanfiction.net']
 
-r = requests.get('http://www.google.com')
-print(r.text)
-
-url_list = ['http://www.google.com','http://www.netflix.com']
-
-r_list = requests.get(url_list)
-print(url_list.text)
+results_list = []
+for x in url_list:  
+    r = requests.get(x)
+    n = r.status_code == requests.codes.ok
+    results_list.append(str(n))
+print(results_list)
