@@ -34,5 +34,5 @@ url_df['url_test_results'] = pd.DataFrame(np.array(url_test_results))
 # Sending results to a file named 'siteresults.csv' in the same location as this script
 url_df.to_csv("./results.csv",sep=',',index=False)
 
-# Prints differnece between time at end and time at begining i.e. total process time
+# Prints difference between time at end and time at begining i.e. total process time
 print("--- %s seconds ---" % (time.time() - start_time))
