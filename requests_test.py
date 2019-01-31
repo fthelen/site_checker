@@ -16,7 +16,7 @@ for x in test_list:
         r = requests.get(x)
         n = r.status_code == requests.codes.ok
         results_list.append(str(n))
-# To this will catch all connection errors and and append them into the list    
+# This will catch all connection errors and and append them into the list    
     except requests.exceptions.RequestException as r:
          n = r == requests.codes.ok
          results_list.append(str(n))
