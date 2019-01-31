@@ -13,7 +13,7 @@ url_test_list = url_df['url'].tolist()
 url_test_results = []
 for x in url_test_list:
     try:
-        r = requests.get(x)
+        r = requests.get(x, timeout=5)
         n = r.status_code == requests.codes.ok
         url_test_results.append(str(n))
 # This will catch all connection errors and and append them into the list    
