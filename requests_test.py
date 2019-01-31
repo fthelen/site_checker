@@ -1,4 +1,4 @@
-# Importing two packages
+# Importing packages
 import pandas as pd
 import numpy as np
 import requests
