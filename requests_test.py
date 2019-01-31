@@ -25,4 +25,4 @@ for x in test_list:
 url_df['url_test_result'] = pd.DataFrame(np.array(results_list))
 
 # Sending results to a file named 'siteresults.csv' in the same location as this script
-url_df.to_csv("./siteresults.csv",sep=',',index=False)
+url_df.to_csv("./results.csv",sep=',',index=False)
