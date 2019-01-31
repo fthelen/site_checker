@@ -1,4 +1,10 @@
-# Importing packages
+# Setting up process clock
+import time
+
+# Defines the initial start time
+start_time = time.time()
+
+# Importing core packages
 import pandas as pd
 import numpy as np
 import requests
@@ -27,3 +33,6 @@ url_df['url_test_results'] = pd.DataFrame(np.array(url_test_results))
 
 # Sending results to a file named 'siteresults.csv' in the same location as this script
 url_df.to_csv("./results.csv",sep=',',index=False)
+
+# Prints differnece between time at end and time at begining i.e. total process time
+print("--- %s seconds ---" % (time.time() - start_time))
