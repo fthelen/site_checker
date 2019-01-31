@@ -13,6 +13,7 @@ url_test_list = url_df['url'].tolist()
 url_test_results = []
 for x in url_test_list:
     try:
+# The request will produce a timeout error after 5 seconds
         r = requests.get(x, timeout=5)
         n = r.status_code == requests.codes.ok
         url_test_results.append(str(n))
