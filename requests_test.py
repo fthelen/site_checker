@@ -1,9 +1,10 @@
 # Importing two packages
-import pandas
+import pandas as pd
+import numpy as np
 import requests
 
 # Importing a .csv file named 'url.csv' from the same location as this script
-url_df = pandas.read_csv("./url.csv")
+url_df = pd.read_csv("./url.csv")
 
 # Converting the 'url' column series into a list to run through loop
 test_list = url_df['url'].tolist()
@@ -15,11 +16,8 @@ for x in test_list:
     n = r.status_code == requests.codes.ok
     results_list.append(str(n))
 
-# Convert results_list into a pandas series to insert into final dataframe
-results_series = pandas.Series(results_list)
-
-# Inserting the results_series into a new dataframe column named 'resutls'
-url_df.insert(loc=1,column='results',value=results_series)
+# Adding results to new column in url_df using np.array()
+url_df['url_test_result'] = pd.DataFrame(np.array(results_list))
 
 # Sending results to a file named 'siteresults.csv' in the same location as this script
 url_df.to_csv("./siteresults.csv",sep=',',index=False)
