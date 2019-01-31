@@ -1,6 +1,9 @@
-url,results
+url,url_test_result
 http://www.google.com,True
 http://www.facebook.com,True
 http://www.netflix.com,True
 http://www.yahoo.com,True
 http://www.instagram.com,True
+http://www.advancedautoparts.com,True
+http://www.fanfiction.net,True
+http://www.buldpedia.bulbagarden.net,False

@@ -11,10 +11,15 @@ test_list = url_df['url'].tolist()
 
 # Generating a new list full of True/False results
 results_list = []
-for x in test_list:  
-    r = requests.get(x)
-    n = r.status_code == requests.codes.ok
-    results_list.append(str(n))
+for x in test_list:
+    try:
+        r = requests.get(x)
+        n = r.status_code == requests.codes.ok
+        results_list.append(str(n))
+# This will catch all connection errors and and append them into the list    
+    except requests.exceptions.RequestException as r:
+         n = r == requests.codes.ok
+         results_list.append(str(n))
 
 # Adding results to new column in url_df using np.array()
 url_df['url_test_result'] = pd.DataFrame(np.array(results_list))
