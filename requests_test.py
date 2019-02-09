@@ -1,5 +1,6 @@
 # Setting up process clock
 import time
+from tqdm import tqdm
 
 # Defines the initial start time
 start_time = time.time()
@@ -17,7 +18,7 @@ url_test_list = url_df['url'].tolist()
 
 # Generating a new list full of True/False results
 url_test_results = []
-for x in url_test_list:
+for x in tqdm(url_test_list):
     try:
 # The request will produce a timeout error after 5 seconds
         r = requests.get(x, timeout=5)
