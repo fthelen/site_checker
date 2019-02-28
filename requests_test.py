@@ -9,31 +9,36 @@ start_time = time.time()
 import pandas as pd
 import numpy as np
 import requests
+from requests_futures.sessions import FuturesSession
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+
+# Adding pandas progress bar
+tqdm.pandas(desc="progress")
 
 # Importing a .csv file named 'url.csv' from the same location as this script
 url_df = pd.read_csv("./url.csv")
 
-# Converting the 'url' column series into a list to run through loop
-url_test_list = url_df['url'].tolist()
-
-# Generating a new list full of True/False results
-url_test_results = []
-for x in tqdm(url_test_list):
+# Defining functions to apply to url_df
+def get_status_code(url):
     try:
-# The request will produce a timeout error after 5 seconds
-        r = requests.get(x, timeout=5)
-        n = r.status_code == requests.codes.ok
-        url_test_results.append(str(n))
-# This will catch all connection errors and and append them into the list    
-    except requests.exceptions.RequestException as r:
-         n = r == requests.codes.ok
-         url_test_results.append(str(n))
+        r = requests.get(url, timeout=10)
+        return r.status_code 
+    except requests.exceptions.RequestException:
+        return "Exception"
 
-# Adding results to new column in url_df using np.array()
-url_df['url_test_results'] = pd.DataFrame(np.array(url_test_results))
+# Applying functions
+if __name__ == "__main__":
+        url_df["status_code"] = url_df["url"].progress_apply(get_status_code)
+else:
+        print("Error!")
 
 # Sending results to a file named 'siteresults.csv' in the same location as this script
 url_df.to_csv("./results.csv",sep=',',index=False)
 
+# Makes a summary_df
+summary_df = url_df.groupby('status_code')['url'].count().reset_index()
+print(summary_df)
+
 # Prints difference between time at end and time at begining i.e. total process time
-print("--- %s seconds ---" % (time.time() - start_time))
+print("--- %f minutes ---" % ((time.time() - start_time)/60))
