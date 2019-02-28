@@ -1,5 +1,6 @@
 # Setting up process clock
 import time
+from tqdm import tqdm
 
 # Defines the initial start time
 start_time = time.time()
