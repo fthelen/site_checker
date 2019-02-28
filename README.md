@@ -11,6 +11,6 @@ This will require use of HTTP status codes (https://en.wikipedia.org/wiki/List_o
 I intend to use several packages:
     1) pandas
     2) requests
-    3) beautifulsoup
+    3) numpy
 
 *This is my first project in python! Any advice is appreciated!*
